@@ -1,0 +1,35 @@
+.data-summary-container {
+    border-right: 2px #c4c7c9 solid;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin: 25px 0;
+    padding: 0 24px;
+    justify-content: space-between;
+}
+
+.data-summary-title {
+
+}
+
+.data-summary-value {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.data-summary-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.data-summary-container:first-child {
+    padding-left: 0;
+}
+
+.data-summary-container:last-child {
+    padding-right: 0;
+    border-right: none;
+}
