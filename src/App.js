@@ -2,8 +2,9 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Dashboard from "./Components/Dashboard/Dashboard";
-import {Routes, Route, useLocation} from "react-router-dom";
+import {Routes, Route, useLocation, Navigate} from "react-router-dom";
 import {useEffect, useState} from "react";
+import NotFound from "./NotFound";
 
 function App() {
     const [headerTitle, setHeaderTitle] = useState("Dashboard");
@@ -29,16 +30,19 @@ function App() {
     }, [location]);
 
     return (
-            <div className="App">
-                <Sidebar/>
-                <Header title={headerTitle}/>
-                <Routes>
-                    <Route exact path="/" element={<Dashboard/>}/>
-                    <Route path="/sensors" element={<Home/>}/>
-                    <Route path="/notifications" element={<Home/>}/>
-                    <Route path="/settings" element={<Home/>}/>
-                </Routes>
-            </div>
+        <div className="App">
+            <Sidebar/>
+            <Header title={headerTitle}/>
+            <Routes>
+                <Route exact path="/" element={<Dashboard/>}/>
+                <Route path="/sensors" element={<Home/>}/>
+                <Route path="/notifications" element={<Home/>}/>
+                <Route path="/settings" element={<Home/>}/>
+                <Route path="/*" element={<NotFound/>}/>
+                <Route path="*" element={<Navigate replace to="/"/>}>
+                </Route>
+            </Routes>
+        </div>
     );
 }
 
