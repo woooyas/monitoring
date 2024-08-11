@@ -1,7 +1,7 @@
 const airQualityBarConfig = {
     series: [
         {
-            name: "1시간 전 평균",
+            name: "10 분 전",
             data: [20, 45, 27, 80, 96, 165]
         }, {
             name: "현재",
@@ -45,9 +45,10 @@ const airQualityBarConfig = {
     },
     dataLabels: {
         enabled: true,
+        offsetY: -20,
         style: {
             fontSize: '12px',
-            colors: ['#fff']
+            colors: ['black']
         }
     },
     stroke: {
@@ -63,6 +64,7 @@ const airQualityBarConfig = {
         categories: ["로비", "강의실A", "강의실B", "사무실", "서버실", "창고"],
     },
     yaxis: {
+        max: 180,
         title: {
             text: '미세먼지 (µg/m³)'
         },

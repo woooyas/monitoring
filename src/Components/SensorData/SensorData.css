@@ -1,0 +1,11 @@
+.sensor-data-item > * {
+    width: calc(100% / 6);
+}
+
+.sensor-data-item > *:nth-last-child(2) {
+    width: calc(100% / 6 * 1.2);
+}
+
+.sensor-data-item > *:last-child {
+    width: calc(100% / 6 * 0.8);
+}

@@ -3,7 +3,6 @@ import BatteryDetail from "./BatteryDetail";
 import {Link} from "react-router-dom";
 
 function BatteryCard({dataArray}) {
-
     const data = [];
 
     for (let i = 0; i < dataArray.length; i++) {
@@ -28,7 +27,7 @@ function BatteryCard({dataArray}) {
                     <span className="card-title">
                         센서 배터리 현황
                     </span>
-                <Link className="see-all" to="/">전체보기</Link>
+                <Link className="see-all" to="/sensors">전체보기</Link>
                 <span className="card-subtitle">배터리 잔량이 낮은 센서들을 우선적으로 표시합니다.</span>
             </div>
             <div className="battery-container">

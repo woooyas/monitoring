@@ -8,6 +8,7 @@
     padding: 0 24px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .center {

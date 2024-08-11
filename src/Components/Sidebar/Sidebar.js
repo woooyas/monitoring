@@ -15,9 +15,9 @@ function Sidebar() {
                 <NavLink to="/sensors">
                     <span className="material-symbols-outlined">sensors</span>
                     Sensors</NavLink>
-                <NavLink to="/notifications">
-                    <span className="material-symbols-outlined">notifications</span>
-                    Notifications</NavLink>
+                <NavLink to="/sensor-data">
+                    <span className="material-symbols-outlined">analytics</span>
+                    SensorData</NavLink>
                 <NavLink to="/settings">
                     <span className="material-symbols-outlined">settings</span>
                     Settings</NavLink>

@@ -2,40 +2,36 @@ import "./Dashboard.css";
 import Card from "../Card/Card";
 import Chart from "../Chart/Chart";
 import BatteryCard from "../Card/BatteryCard";
-import tempLineConfig from "../Chart/config/TempLineConfig";
 import AirQualityCard from "../Card/AirQualityCard";
 import DataSummaryCard from "../Card/DataSummaryCard";
 import powerConsumptionConfig from "../Chart/config/PowerConsumptionConfig";
 import "../Chart/Chart.css";
 import DecibelCard from "../Card/DecibelCard";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {translateLocation} from "../Sensors/Sensors";
+import TemperatureLineChart from "../Chart/TemperatureLineChart";
 
 function Dashboard() {
 
-    const batteryProps1 = {
-        value: "8",
-        place: "강의실A",
-        sensorId: "sensor-001",
-        timestamp: "1분 전 전송됨"
-    };
-    const batteryProps2 = {
-        value: "14",
-        place: "창고",
-        sensorId: "temp-sensor-02",
-        timestamp: "3분 전 전송됨"
-    };
-    const batteryProps3 = {
-        value: 19,
-        place: "강의실B",
-        sensorId: "sensor-003",
-        timestamp: "1분 전 전송됨"
-    };
-    const batteryProps4 = {
-        value: 42,
-        place: "로비",
-        sensorId: "sensor-012",
-        timestamp: "2분 전 전송됨"
-    };
-    const batteryPropsArray = [batteryProps1, batteryProps2, batteryProps3, batteryProps4];
+    const [sensorStatuses, setSensorStatuses] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://34.127.24.61:8080/api/sensor-statuses/low-battery?page=0&size=4")
+            .then(response => {
+                setSensorStatuses(response.data.content);
+            }).catch(error => console.error('Error fetching data:', error));
+    }, []);
+
+    const batteryPropsArray = [];
+    sensorStatuses.map(data => (
+        batteryPropsArray.push({
+            value: data.batteryLevel,
+            place: translateLocation(data.sensor.location),
+            sensorId: data.sensor.deviceId,
+            timestamp: Math.floor(((Date.now() - data.time) / (1000 * 60 * 60)) % 24) + "시간 전 전송됨"
+        })
+    ));
 
     return (
         <div className="main-content">
@@ -49,9 +45,7 @@ function Dashboard() {
                 <BatteryCard dataArray={batteryPropsArray}/>
             }/>
             <Card className="center" width="40%" height="calc((100% - 30px - 20%) / 2)" content={
-                <div className="chart-container">
-                    <Chart id="temperature-line-chart" option={tempLineConfig}/>
-                </div>
+                <TemperatureLineChart/>
             }/>
             <Card width="calc((100% - 30px - 45%) / 2)" height="calc((100% - 30px - 20%) / 2)" content={
                 <div className="chart-container">

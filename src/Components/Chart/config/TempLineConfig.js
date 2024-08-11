@@ -38,7 +38,7 @@ const tempLineConfig = {
         enabled: false,
     },
     stroke: {
-        width: 5,
+        width: 3,
         curve: 'smooth'
     },
     title: {
@@ -50,19 +50,33 @@ const tempLineConfig = {
             fontWeight: 'bold'
         }
     },
+    tooltip: {
+        x: {
+            formatter: function (value) {
+                return new Date(value).toLocaleString('ko-KR', {timeZone: 'Asia/Seoul'})
+            }
+        },
+        y: {
+            formatter: function (value) {
+                return value + " °C";
+            }
+        }
+    },
     grid: {
         borderColor: '#e7e7e7',
         padding: {
             left: -3,
-            right: -1
+            right: -1,
+            bottom: -10,
+            top: 10
         }
     },
     xaxis: {
-        categories: ['13시', '14시', '15시', '16시', '17시', '18시', '19시']
+        labels: {
+            show: false
+        }
     },
     yaxis: {
-        min: 0,
-        max: 40,
         labels: {
             offsetX: -10
         }

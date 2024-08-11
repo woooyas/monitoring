@@ -1,6 +1,26 @@
 import React, {useEffect} from 'react';
 import ApexCharts from 'apexcharts';
 
+const groupData = (data, acc) => {
+    return data.reduce((acc, current) => {
+        const place = current.place;
+        if (acc[place]) {
+            acc[place].push(current);
+        }
+        return acc;
+    }, acc)
+};
+
+const groupDataValue = (data, acc) => {
+    return data.reduce((acc, current) => {
+        const place = current.place;
+        if (acc[place]) {
+            acc[place].push(current.value);
+        }
+        return acc;
+    }, acc)
+};
+
 function Chart(props) {
     useEffect(() => {
         let chart = new ApexCharts(document.querySelector("#" + props.id), props.option);
@@ -15,3 +35,4 @@ function Chart(props) {
 }
 
 export default Chart;
+export {groupData, groupDataValue};

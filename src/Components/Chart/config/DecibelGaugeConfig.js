@@ -8,7 +8,7 @@ const decibelGaugeConfig = {
                     y: 43,
                     goals: [
                         {
-                            name: 'Expected',
+                            name: '권장',
                             value: 50,
                             strokeHeight: 3,
                             strokeWidth: 8,
@@ -22,7 +22,7 @@ const decibelGaugeConfig = {
                     y: 51,
                     goals: [
                         {
-                            name: 'Expected',
+                            name: '권장',
                             value: 45,
                             strokeHeight: 3,
                             strokeWidth: 8,
@@ -36,7 +36,7 @@ const decibelGaugeConfig = {
                     y: 62,
                     goals: [
                         {
-                            name: 'Expected',
+                            name: '권장',
                             value: 50,
                             strokeHeight: 3,
                             strokeWidth: 8,
@@ -50,7 +50,7 @@ const decibelGaugeConfig = {
                     y: 43,
                     goals: [
                         {
-                            name: 'Expected',
+                            name: '권장',
                             value: 50,
                             strokeHeight: 3,
                             strokeWidth: 8,
@@ -64,7 +64,7 @@ const decibelGaugeConfig = {
                     y: 57,
                     goals: [
                         {
-                            name: 'Expected',
+                            name: '권장',
                             value: 60,
                             strokeHeight: 3,
                             strokeWidth: 8,
@@ -78,7 +78,7 @@ const decibelGaugeConfig = {
                     y: 36,
                     goals: [
                         {
-                            name: 'Expected',
+                            name: '권장',
                             value: 45,
                             strokeHeight: 3,
                             strokeWidth: 8,
@@ -127,6 +127,7 @@ const decibelGaugeConfig = {
         }
     },
     yaxis: {
+        max: 80,
         labels: {
             show: false
         }

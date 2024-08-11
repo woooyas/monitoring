@@ -6,7 +6,6 @@
     width: calc(100% - 250px);
     height: calc(100% - 80px);
     gap: 15px;
-    overflow: auto;
 }
 
 .main-content h1 {

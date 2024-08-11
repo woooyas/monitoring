@@ -1,0 +1,47 @@
+.pagination {
+    list-style-type: none;
+    display: flex;
+    border-radius: 5px;
+    border: #c4c7c9 1px solid;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    padding: 0;
+    font-size: 14px;
+}
+
+.page-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-right: #c4c7c9 1px solid;
+    color: #FC5D19;
+    user-select: none;
+}
+
+.disabled {
+    color: #6E757C;
+}
+
+.page-active {
+    background-color: #FC5D19;
+    color: white;
+}
+
+.page-item:hover:not(.page-active):not(.disabled) {
+    background-color: #EAECEF;
+}
+
+.page-item:first-child {
+    aspect-ratio: 2.3 / 1;
+    border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child {
+    aspect-ratio: 1.5 / 1;
+    border-radius: 0 5px 5px 0;
+    border-right: none;
+}
