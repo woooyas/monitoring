@@ -1,0 +1,118 @@
+.data-list-footer {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-list-container {
+    width: 100%;
+    display: flex;
+    height: calc(100% - 7% - 70px);
+}
+
+.data-list {
+    list-style-type: none;
+    text-align: start;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    border: #c4c7c9 1px solid;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    box-sizing: content-box;
+}
+
+.data-item-header {
+    width: 100%;
+    min-height: 40px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    background-color: #F5F6FA;
+    border-bottom: #D1D4D6 1px solid;
+    align-items: center;
+}
+
+.data-item {
+    min-height: 54px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.data-name-container {
+    position: relative;
+}
+
+.sensor-name-input {
+    font-family: 'GmarketSansMedium', sans-serif;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+.name-active::placeholder {
+    color: black;
+}
+
+.sensor-name-input:focus {
+    outline: none;
+}
+
+.sensor-name-submit {
+    position: absolute;
+    right: 15px;
+    padding: 0;
+    height: 60%;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: none;
+}
+
+.data-item-header > *, .data-item > * {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 20px;
+    width: calc(100% / 4);
+}
+
+.data-item-header > *:not(:last-child) {
+    border-right: #D1D4D6 1px solid;
+}
+
+.data-item > * {
+    height: 54px;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.data-item-header > * {
+    height: 40px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.data-item > *:not(:last-child) {
+    border-right: #E8EBED 1px solid;
+}
+
+.data-item:nth-child(odd) {
+    background-color: #F8F9FB;
+}
+
+.data-item:last-child {
+    border-radius: 0 0 5px 5px;
+}

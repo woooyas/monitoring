@@ -1,0 +1,15 @@
+.sort-button {
+    height: 100%;
+    margin-right: 8px;
+    background-color: transparent;
+    border: none;
+}
+
+.sort-button > * {
+    font-size: 18px;
+    padding-top: 3px;
+}
+
+.sort-button > *:hover {
+    color: #6E757C;
+}
