@@ -1,23 +1,40 @@
 import "./Pagination.css";
 import {useEffect, useState} from "react";
 
-function getTensValue(value) {
-    return Math.floor(value / 10) * 10;
+function getIndexValue(value, maxPages) {
+    return Math.floor(value / maxPages) * maxPages;
 }
 
 export default function Pagination({totalPages, pageNum, setPageNum}) {
 
-    const currentRange = getTensValue(totalPages);
-    const [startPage, setStartPage] = useState(getTensValue(pageNum) + 1);
-    const [endPage, setEndPage] = useState(pageNum < currentRange ? startPage + 9 : totalPages);
+    const [maxPages, setMaxPages] = useState(10);
+    const currentRange = getIndexValue(totalPages, maxPages);
+    const [startPage, setStartPage] = useState(getIndexValue(pageNum, maxPages) + 1);
+    const [endPage, setEndPage] = useState(pageNum < currentRange ? startPage + maxPages - 1 : totalPages);
 
     useEffect(() => {
-        const newStartPage = getTensValue(pageNum) + 1;
-        const newEndPage = pageNum < getTensValue(totalPages) ? newStartPage + 9 : totalPages;
+        const handleResize = () => {
+            if (window.innerWidth < 480) {
+                setMaxPages(5);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        const newStartPage = getIndexValue(pageNum, maxPages) + 1;
+        const newEndPage = pageNum < getIndexValue(totalPages, maxPages) ? newStartPage + maxPages - 1 : totalPages;
 
         setStartPage(newStartPage);
         setEndPage(newEndPage);
-    }, [pageNum, totalPages]);
+    }, [pageNum, totalPages, maxPages]);
 
     let pageNums = [];
     for (let i = startPage; i <= endPage; i++) {

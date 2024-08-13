@@ -1,15 +1,10 @@
 .data-list-footer {
-    width: 100%;
+    min-height: 42px;
     height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.data-list-container {
-    width: 100%;
-    display: flex;
-    height: calc(100% - 7% - 70px);
+    margin-top: auto;
 }
 
 .data-list {
@@ -47,6 +42,12 @@
 
 .data-name-container {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-name-container > * {
+    overflow: hidden;
 }
 
 .sensor-name-input {
@@ -56,6 +57,7 @@
     width: 100%;
     height: 100%;
     font-size: 16px;
+
 }
 
 .name-active::placeholder {
@@ -67,8 +69,6 @@
 }
 
 .sensor-name-submit {
-    position: absolute;
-    right: 15px;
     padding: 0;
     height: 60%;
     aspect-ratio: 1/1;
@@ -80,8 +80,14 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding-left: 20px;
+    padding: 0 20px;
     width: calc(100% / 4);
+    overflow: auto;
+    -ms-overflow-style: none;
+}
+
+.data-item-header > *::-webkit-scrollbar, .data-item > *::-webkit-scrollbar {
+    display: none;
 }
 
 .data-item-header > *:not(:last-child) {
@@ -89,17 +95,14 @@
 }
 
 .data-item > * {
-    height: 54px;
+    height: 100%;
     white-space: nowrap;
-    overflow: auto;
 }
 
 .data-item-header > * {
     height: 40px;
     font-weight: bold;
     white-space: nowrap;
-    overflow: auto;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;

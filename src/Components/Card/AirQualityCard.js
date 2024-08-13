@@ -21,7 +21,7 @@ export default function AirQualityCard() {
     const [chartConfig, setChartConfig] = useState(airQualityBarConfig);
 
     useEffect(() => {
-        axios.get("http://34.127.24.61:8080/api/sensor-data/recent-dust", {
+        axios.get("https://backend.m0nit0ring.site/api/sensor-data/recent-dust", {
             params: {
                 places: locations,
                 page: 0,

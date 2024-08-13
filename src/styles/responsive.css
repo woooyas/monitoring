@@ -1,0 +1,211 @@
+@media screen and (max-width: 479px) {
+    .sidebar {
+        display: none;
+        position: relative;
+    }
+
+    .sidebar.open {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    .sidebar-close {
+        display: flex;
+        position: absolute;
+        border: none;
+        top: 3px;
+        right: 3px;
+        padding: 0;
+        background-color: transparent;
+        color: black;
+    }
+
+    .header {
+        width: 100%;
+        justify-content: center;
+        position: relative;
+    }
+
+    .menu {
+        display: flex;
+        position: absolute;
+        left: 20px;
+        padding: 10px;
+    }
+
+    .menu > * {
+        font-size: 30px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100% !important;
+        height: calc(100% - 80px);
+        overflow: auto;
+    }
+
+    .main-content > .card {
+        width: 100% !important;
+    }
+
+    .main-content > .card:not(:first-child) {
+        min-height: 47%;
+    }
+
+    .main-content > .card:last-child {
+        min-height: 55%;
+    }
+
+    .main-content > .card:last-child > .chart-container {
+        justify-content: center !important;
+    }
+
+    .main-content > .card:first-child {
+        min-height: 12%;
+    }
+
+    .data-summary-container {
+        margin: 15px 0;
+        padding: 0 12px;
+    }
+
+    .data-summary-title {
+        font-size: 14px;
+    }
+
+    .data-summary-value {
+        font-size: 15px;
+    }
+
+    .data-summary-sub {
+        display: none;
+    }
+
+    .main-content > .card:nth-child(2) {
+        align-content: space-between;
+        min-height: 50%;
+    }
+
+    .main-content > .card:nth-child(2) > .card-header {
+        height: 60px;
+    }
+
+    .battery-container {
+        flex-wrap: wrap;
+        height: 65%;
+    }
+
+    .battery-container > .card {
+        width: 48% !important;
+        height: 48% !important;
+        display: flex;
+        align-content: center;
+    }
+
+    .battery-container > .card > div {
+        height: 80%;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: start !important;
+    }
+
+    .battery-level {
+        margin: 0 10px 0 0;
+        padding: 0;
+    }
+
+    .data-list-header-container {
+        min-height: 10%;
+        height: 10%;
+        flex-direction: column;
+        align-items: start;
+        position: relative;
+    }
+
+    .sensor-list-subtitle {
+        margin: 0;
+        padding: 0;
+    }
+
+    .my-select-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+    }
+
+    .data-list {
+        height: min-content !important;
+    }
+
+    .data-item-header > *, .data-item > * {
+        padding: 0 10px;
+    }
+
+    .data-item {
+        min-height: 45px !important;
+    }
+
+    .data-item-header > div:nth-child(2),
+    .data-item > div:nth-child(2) {
+        width: calc(100% / 4 * 1.2);
+    }
+
+    .data-item-header > div:last-child,
+    .data-item > div:last-child {
+        width: calc(100% / 4 * 0.8);
+    }
+
+    .data-list-header-container.slim {
+        height: 6%;
+        min-height: 6%;
+    }
+
+    .slim > .sensor-list-title {
+        display: none;
+    }
+
+    .slim > .sensor-list-subtitle {
+        display: none;
+    }
+
+    .log-list > .data-item-header > *:nth-child(1),
+    .log-list > .data-item > *:nth-child(1) {
+        width: calc(100% / 5 * 1.1);
+    }
+
+    .log-list > .data-item-header > *:nth-child(2),
+    .log-list > .data-item > *:nth-child(2) {
+        display: none;
+    }
+
+    .log-list > .data-item-header > *:nth-child(3),
+    .log-list > .data-item > *:nth-child(3) {
+        width: calc(100% / 5 * 0.9);
+    }
+
+    .log-list > .data-item-header > *:nth-child(4),
+    .log-list > .data-item > *:nth-child(4) {
+        width: calc(100% / 5 * 0.9);
+    }
+
+    .log-list > .data-item-header > *:nth-child(5),
+    .log-list > .data-item > *:nth-child(5) {
+        width: calc(100% / 5 * 1.4);
+    }
+
+    .log-list > .data-item-header > *:nth-child(6),
+    .log-list > .data-item > *:nth-child(6) {
+        width: calc(100% / 5 * 0.7);
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .header > .sidebar {
+        display: none;
+    }
+}

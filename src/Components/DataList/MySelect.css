@@ -4,3 +4,12 @@
     align-items: center;
     gap: 10px;
 }
+
+#data-line-chart {
+    display: flex;
+    align-items: center;
+}
+
+#data-line-chart > * > .apexcharts-toolbar {
+    z-index: 0 !important;
+}

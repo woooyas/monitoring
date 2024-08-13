@@ -17,7 +17,7 @@ function Dashboard() {
     const [sensorStatuses, setSensorStatuses] = useState([]);
 
     useEffect(() => {
-        axios.get("http://34.127.24.61:8080/api/sensor-statuses/low-battery?page=0&size=4")
+        axios.get("https://backend.m0nit0ring.site/api/sensor-statuses/low-battery?page=0&size=4")
             .then(response => {
                 setSensorStatuses(response.data.content);
             }).catch(error => console.error('Error fetching data:', error));

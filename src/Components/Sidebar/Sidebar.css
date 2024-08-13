@@ -9,6 +9,10 @@
     font-weight: bold;
 }
 
+.sidebar-close {
+    display: none;
+}
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
@@ -46,7 +50,7 @@
     text-decoration: none;
 }
 
-.logo span {
+.logo > span {
     background-color: #FC5D19;
     border-radius: 5px;
     color: white;

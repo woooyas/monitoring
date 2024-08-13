@@ -64,7 +64,8 @@ export default function MySelect({isMulti, placeholder, defaultValue, options, o
                         color: state.isFocused ? "white" : "black",
                         '&:hover': {
                             backgroundColor: state.isFocused ? "#FC5D19" : "white",
-                        }
+                        },
+                        zIndex: 1000000
                     }),
                 }}
         />

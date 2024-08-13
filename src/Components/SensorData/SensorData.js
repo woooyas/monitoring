@@ -21,7 +21,7 @@ export default function SensorData() {
     const [sortOrder, setSortOrder] = useState("DESC");
 
     useEffect(() => {
-        axios.get("http://34.127.24.61:8080/api/sensor-data/recent-data", {
+        axios.get("https://backend.m0nit0ring.site/api/sensor-data/recent-data", {
             params: {
                 places: places,
                 measurements: measurements,
@@ -47,9 +47,9 @@ export default function SensorData() {
 
     return (
         <div className="main-content"
-             style={{flexDirection: "column", overflow: "auto", flexWrap: "nowrap"}}>
-            <div className="data-list-header-container">
-                <Header title="센서 데이터 로그" subtitle="표와 그래프로 확인할 수 있습니다." setSize={setSize}/>
+             style={{flexDirection: "column", overflow: "auto", flexWrap: "nowrap", alignItems: "center"}}>
+            <div className="data-list-header-container slim">
+                <Header title="센서 데이터 로그" /*subtitle="표와 그래프로 확인할 수 있습니다."*/ setSize={setSize}/>
                 <div className="my-select-container" style={{position: "absolute", right: 0, bottom: 0}}>
                     <MySelect isMulti={true} placeholder="장소 선택" defaultValue={null} options={placeOptions}
                               onChange={(selectedOption) => setPlaces(selectedOption.map(option => option.value))}/>
@@ -59,38 +59,35 @@ export default function SensorData() {
                               onChange={(selectedOption) => setSize(selectedOption.value)}/>
                 </div>
             </div>
-            <div className="data-list-container"
-                 style={{height: size > 10 ? `${40 + 54 * sensorData.length}px` : "calc(100% - 7% - 70px)"}}>
-                <ul className="data-list" style={{height: `${40 + 54 * sensorData.length}px`}}>
-                    <li className="data-item-header sensor-data-item" style={{}}>
-                        <div>센서 아이디<SortButton value="sensor.sensorId" setSortField={setSortField} sortOrder={sortOrder}
-                                               setSortOrder={setSortOrder}/></div>
-                        <div>센서명<SortButton value="sensor.sensorName" setSortField={setSortField} sortOrder={sortOrder}
-                                            setSortOrder={setSortOrder}/></div>
-                        <div>장소<SortButton value="place" setSortField={setSortField} sortOrder={sortOrder}
+            <ul className="data-list log-list">
+                <li className="data-item-header">
+                    <div>센서 아이디<SortButton value="sensor.sensorId" setSortField={setSortField} sortOrder={sortOrder}
                                            setSortOrder={setSortOrder}/></div>
-                        <div>종류<SortButton value="measurement" setSortField={setSortField} sortOrder={sortOrder}
-                                           setSortOrder={setSortOrder}/></div>
-                        <div>시간<SortButton value="time" setSortField={setSortField} sortOrder={sortOrder}
-                                           setSortOrder={setSortOrder}/></div>
-                        <div>값<SortButton value="value" setSortField={setSortField} sortOrder={sortOrder}
-                                          setSortOrder={setSortOrder}/></div>
-                    </li>
-                    {
-                        sensorData.map(data => (
-                            <li className="data-item sensor-data-item" key={data.dataId}>
-                                <div>{data.sensor.deviceId}</div>
-                                <div style={{color: data.sensor.sensorName ? "black" : "#757575"}}>
-                                    {data.sensor.sensorName || "별명 없음"}</div>
-                                <div>{translateLocation(data.sensor.location)}</div>
-                                <div>{data.measurement}</div>
-                                <div>{new Date(data.time).toLocaleString('ko-KR', {timeZone: 'Asia/Seoul'})}</div>
-                                <div>{data.value}</div>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
+                    <div>센서명<SortButton value="sensor.sensorName" setSortField={setSortField} sortOrder={sortOrder}
+                                        setSortOrder={setSortOrder}/></div>
+                    <div>장소<SortButton value="place" setSortField={setSortField} sortOrder={sortOrder}
+                                       setSortOrder={setSortOrder}/></div>
+                    <div>종류<SortButton value="measurement" setSortField={setSortField} sortOrder={sortOrder}
+                                       setSortOrder={setSortOrder}/></div>
+                    <div>시간<SortButton value="time" setSortField={setSortField} sortOrder={sortOrder}
+                                       setSortOrder={setSortOrder}/></div>
+                    <div>값<SortButton value="value" setSortField={setSortField} sortOrder={sortOrder}
+                                      setSortOrder={setSortOrder}/></div>
+                </li>
+                {
+                    sensorData.map(data => (
+                        <li className="data-item" key={data.dataId}>
+                            <div>{data.sensor.deviceId}</div>
+                            <div style={{color: data.sensor.sensorName ? "black" : "#757575"}}>
+                                {data.sensor.sensorName || "별명 없음"}</div>
+                            <div>{translateLocation(data.sensor.location)}</div>
+                            <div>{data.measurement}</div>
+                            <div>{new Date(data.time).toLocaleString('ko-KR', {timeZone: 'Asia/Seoul'})}</div>
+                            <div>{data.value}</div>
+                        </li>
+                    ))
+                }
+            </ul>
             <nav className="data-list-footer">
                 <Pagination totalPages={totalPages} pageNum={pageNum} setPageNum={setPageNum}/>
             </nav>

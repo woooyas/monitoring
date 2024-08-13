@@ -33,7 +33,7 @@ const tempLineConfig = {
             }
         }
     },
-    colors: ['#FC5D19', '#595959'],
+    colors: ['#711DB0', '#C21292', '#FC5D19', '#FFA732'],
     dataLabels: {
         enabled: false,
     },
