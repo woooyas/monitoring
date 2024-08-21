@@ -2,7 +2,7 @@ import "./DataSummaryCard.css"
 
 export default function DataSummaryCard({title, value, change}) {
     let changeColor;
-    if (change.includes("상승")) {
+    if (change.includes("증가")) {
         changeColor = "#5AC451"
     }
     if (change.includes("감소")) {
@@ -14,8 +14,8 @@ export default function DataSummaryCard({title, value, change}) {
             <span className="data-summary-title">{title}</span>
             <span className="data-summary-value">{value}</span>
             <div className="data-summary-sub">
-                <span style={{color: changeColor}}>{change}</span>
                 <span style={{marginRight: "10px"}}>어제 대비</span>
+                <span style={{color: changeColor}}>{change}</span>
             </div>
         </div>
     );

@@ -2,3 +2,7 @@
     display: flex;
     align-items: center;
 }
+
+#air-quality-bar-chart {
+    width: 100%;
+}

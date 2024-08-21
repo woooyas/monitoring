@@ -72,12 +72,6 @@ const airQualityBarConfig = {
         labels: {
             offsetX: 0
         }
-    },
-    grid: {
-        padding: {
-            left: 0,
-            right: -15,
-        }
     }
 };
 

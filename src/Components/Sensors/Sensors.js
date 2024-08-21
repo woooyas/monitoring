@@ -50,7 +50,7 @@ export default function Sensors() {
 
     const saveSensorName = (sensorId) => {
         const newSensorName = inputValues[sensorId];
-        axios.put(`https://backend.m0nit0ring.site/api/sensors/${sensorId}/name`,
+        axios.put(`https://m0nit0ring.site/api/sensors/${sensorId}/name`,
             {sensorName: newSensorName},
             {
                 headers: {
@@ -61,7 +61,7 @@ export default function Sensors() {
     };
 
     useEffect(() => {
-        axios.get(`https://backend.m0nit0ring.site/api/sensor-statuses/latest`, {
+        axios.get(`https://m0nit0ring.site/api/sensor-statuses/latest`, {
             params: {
                 page: pageNum,
                 size: size,
@@ -84,7 +84,12 @@ export default function Sensors() {
 
     return (
         <div className="main-content"
-             style={{flexDirection: "column", overflow: "auto", flexWrap: "nowrap", alignItems: "center"}}>
+             style={{
+                 flexDirection: "column",
+                 overflow: "auto",
+                 flexWrap: "nowrap",
+                 alignItems: "center",
+             }}>
             <div className="data-list-header-container">
                 <Header title="센서 상태 정보" subtitle="배터리 잔량이 20% 이하일 경우 빨간색으로 표시됩니다."/>
                 <div className="my-select-container" style={{position: "absolute", right: 0, bottom: 0}}>

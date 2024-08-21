@@ -21,7 +21,7 @@ export default function SensorData() {
     const [sortOrder, setSortOrder] = useState("DESC");
 
     useEffect(() => {
-        axios.get("https://backend.m0nit0ring.site/api/sensor-data/recent-data", {
+        axios.get("https://m0nit0ring.site/api/sensor-data/recent-data", {
             params: {
                 places: places,
                 measurements: measurements,

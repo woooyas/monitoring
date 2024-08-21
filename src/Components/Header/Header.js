@@ -10,8 +10,8 @@ function Header(props) {
     };
 
     return (
-        <div className="header" onClick={toggleSidebar}>
-            <div className="menu"><span className="material-symbols-outlined">menu</span></div>
+        <div className="header">
+            <div className="menu" onClick={toggleSidebar}><span className="material-symbols-outlined">menu</span></div>
             <h1>{props.title}</h1>
             <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar}/>
         </div>

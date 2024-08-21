@@ -21,7 +21,7 @@ export default function AirQualityCard() {
     const [chartConfig, setChartConfig] = useState(airQualityBarConfig);
 
     useEffect(() => {
-        axios.get("https://backend.m0nit0ring.site/api/sensor-data/recent-dust", {
+        axios.get("https://m0nit0ring.site/api/sensor-data/recent-dust", {
             params: {
                 places: locations,
                 page: 0,
@@ -83,7 +83,7 @@ export default function AirQualityCard() {
                       style={{fontSize: "20px", color: "#393E40", marginLeft: "3px"}}
                       onClick={() => handleChartModal()}>info</span>
             </div>
-            <div style={{height: "calc(100% - 47px)"}}>
+            <div style={{height: "calc(100% - 47px)", display: "flex", alignItems: "center", justifyContent: "center"}}>
                 <Chart id="air-quality-bar-chart" option={chartConfig}/>
                 <Modal chartModal={chartModal} handleChartModal={handleChartModal} element={modalContent}/>
             </div>

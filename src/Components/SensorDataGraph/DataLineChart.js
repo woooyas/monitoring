@@ -10,7 +10,7 @@ export default function DataLineChart({places, measurement}) {
     const [chartConfig, setChartConfig] = useState(dataLineConfig);
 
     useEffect(() => {
-        axios.get("https://backend.m0nit0ring.site/api/sensor-data/today-data", {
+        axios.get("https://m0nit0ring.site/api/sensor-data/today-data", {
             params: {
                 places: places,
                 measurement: measurement,
@@ -42,7 +42,7 @@ export default function DataLineChart({places, measurement}) {
                     })
                     timeKey = groupedDataKey;
                 }
-
+                
                 setChartConfig({
                     ...dataLineConfig,
                     series: series,

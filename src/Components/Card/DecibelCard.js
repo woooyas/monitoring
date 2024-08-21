@@ -18,7 +18,7 @@ export default function DecibelCard() {
     const [chartConfig, setChartConfig] = useState(decibelGaugeConfig);
 
     useEffect(() => {
-        axios.get("https://backend.m0nit0ring.site/api/sensor-data/recent-noise?page=0&size=6", {
+        axios.get("https://m0nit0ring.site/api/sensor-data/recent-noise?page=0&size=6", {
             params: {
                 places: locations,
                 page: 0,
