@@ -1,16 +1,15 @@
 import "./Dashboard.css";
 import Card from "../Card/Card";
-import Chart from "../Chart/Chart";
 import BatteryCard from "../Card/BatteryCard";
 import AirQualityCard from "../Card/AirQualityCard";
-import powerConsumptionConfig from "../Chart/config/PowerConsumptionConfig";
 import "../Chart/Chart.css";
 import DecibelCard from "../Card/DecibelCard";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {translateLocation} from "../Sensors/Sensors";
 import TemperatureLineChart from "../Chart/TemperatureLineChart";
-import DataSummaryCards from "./DataSummaryCards";
+import DataSummaryCards from "../Card/DataSummaryCards";
+import PowerAreaChart from "../Chart/PowerAreaChart";
 
 function Dashboard() {
 
@@ -45,9 +44,7 @@ function Dashboard() {
                 <TemperatureLineChart/>
             }/>
             <Card width="calc((100% - 30px - 45%) / 2)" height="calc((100% - 30px - 20%) / 2)" content={
-                <div className="chart-container">
-                    <Chart id="power-area-chart" option={powerConsumptionConfig}/>
-                </div>
+                <PowerAreaChart/>
             }/>
             <Card width="45%" height="calc((100% - 30px - 20%) / 2)" content={
                 <AirQualityCard/>
