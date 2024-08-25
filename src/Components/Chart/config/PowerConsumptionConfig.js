@@ -85,7 +85,6 @@ const powerConsumptionConfig = {
     },
     yaxis: {
         min: 100,
-        max: 160,
         labels: {
             offsetX: -10,
             show: false
