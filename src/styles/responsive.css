@@ -1,0 +1,249 @@
+@media screen and (max-width: 479px) {
+    .App {
+        flex-wrap: nowrap;
+    }
+
+    .header {
+        width: 100%;
+        padding-left: 0;
+        justify-content: center;
+        position: relative;
+    }
+
+    .sidebar {
+        display: none;
+        position: relative;
+    }
+
+    .sidebar.open {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu > * {
+        font-size: 23px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100% !important;
+        height: calc(100% - 80px);
+        overflow: auto;
+    }
+
+    .main-content > .card {
+        width: 100% !important;
+        min-height: fit-content;
+        height: fit-content !important;
+        overflow: visible;
+    }
+
+    .main-content > .card:last-child > .chart-container {
+        justify-content: center !important;
+    }
+
+    .main-content > .card:first-child {
+        flex-wrap: wrap;
+        padding: 15px;
+        gap: 10px;
+        align-content: center;
+    }
+
+    .data-summary-container {
+        flex: none;
+        width: calc((100% - 10px) / 2);
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+    }
+
+    .data-summary-container:nth-child(even) {
+        border-right: none;
+    }
+
+    .data-summary-title {
+        font-size: 13px;
+    }
+
+    .data-summary-value {
+        font-size: 15px;
+    }
+
+    .data-summary-sub {
+        display: none;
+    }
+
+    .main-content > .card:nth-child(2) {
+        align-content: space-between;
+        gap: 10px;
+    }
+
+    .main-content > .card:nth-child(2) > .card-header {
+        font-size: 13px;
+    }
+
+    .main-content > .card:nth-child(2) .card-subtitle {
+        display: none;
+    }
+
+    .battery-container {
+        flex-wrap: wrap;
+    }
+
+    .battery-container > .card {
+        width: calc((100% - 10px) / 2) !important;
+        height: 100px !important;
+        display: flex;
+        align-content: center;
+    }
+
+    .battery-container > .card > div {
+        height: 80%;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: start !important;
+        padding: 0 8px !important;
+    }
+
+    .battery-level {
+        margin: 0 5px 0 0;
+        padding: 0;
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
+    }
+
+    .battery-title {
+        font-size: 13px;
+    }
+
+    #temperature-line-chart, #power-area-chart,
+    #air-quality-bar-chart {
+        height: 300px;
+    }
+
+    #decibel-gauge-chart {
+        height: 200px;
+    }
+
+    #temperature-line-chart > * > .apexcharts-toolbar {
+        display: none;
+    }
+
+    .apexcharts-data-labels {
+        display: none;
+    }
+
+    #air-quality-bar-chart .apexcharts-legend {
+        margin-bottom: 20px
+    }
+
+
+    .data-list-header-container {
+        min-height: max-content;
+        height: max-content;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        position: relative;
+    }
+
+    .sensor-list-title {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .sensor-list-subtitle {
+        margin: 0;
+        padding: 0;
+        height: min-content;
+        text-align: start;
+    }
+
+    .my-select-container {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+    }
+
+    .data-list {
+        height: min-content !important;
+    }
+
+    .data-item-header > *, .data-item > * {
+        padding: 0 10px;
+    }
+
+    .data-item {
+        min-height: 45px !important;
+    }
+
+    .data-item-header > div:nth-child(2),
+    .data-item > div:nth-child(2) {
+        width: calc(100% / 4 * 1.2);
+    }
+
+    .data-item-header > div:last-child,
+    .data-item > div:last-child {
+        width: calc(100% / 4 * 0.8);
+    }
+
+    .data-list-header-container.slim {
+        height: 6%;
+        min-height: 6%;
+    }
+
+    .slim > .sensor-list-title {
+        display: none;
+    }
+
+    .slim > .sensor-list-subtitle {
+        display: none;
+    }
+
+    .log-list > .data-item-header > *:nth-child(1),
+    .log-list > .data-item > *:nth-child(1) {
+        width: calc(100% / 5 * 1.1);
+    }
+
+    .log-list > .data-item-header > *:nth-child(2),
+    .log-list > .data-item > *:nth-child(2) {
+        display: none;
+    }
+
+    .log-list > .data-item-header > *:nth-child(3),
+    .log-list > .data-item > *:nth-child(3) {
+        width: calc(100% / 5 * 0.9);
+    }
+
+    .log-list > .data-item-header > *:nth-child(4),
+    .log-list > .data-item > *:nth-child(4) {
+        width: calc(100% / 5 * 0.9);
+    }
+
+    .log-list > .data-item-header > *:nth-child(5),
+    .log-list > .data-item > *:nth-child(5) {
+        width: calc(100% / 5 * 1.4);
+    }
+
+    .log-list > .data-item-header > *:nth-child(6),
+    .log-list > .data-item > *:nth-child(6) {
+        width: calc(100% / 5 * 0.7);
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .header > .sidebar {
+        display: none;
+    }
+}

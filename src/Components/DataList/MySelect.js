@@ -23,6 +23,7 @@ const measurementOptions = [
     {value: "humidity", label: "습도"},
     {value: "noise", label: "소음"},
     {value: "dust", label: "미세먼지"},
+    {value: "co2", label: "CO₂"},
     {value: "power_consumption", label: "전력소비량"},
     {value: "visitor", label: "방문자 수"},
 ];
@@ -64,8 +65,15 @@ export default function MySelect({isMulti, placeholder, defaultValue, options, o
                         color: state.isFocused ? "white" : "black",
                         '&:hover': {
                             backgroundColor: state.isFocused ? "#FC5D19" : "white",
-                        }
+                        },
+                        zIndex: 100
                     }),
+                    placeholder: (base) => ({
+                        ...base,
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        overflow: "hidden"
+                    })
                 }}
         />
     );

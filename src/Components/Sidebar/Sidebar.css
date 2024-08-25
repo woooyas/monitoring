@@ -46,12 +46,27 @@
     text-decoration: none;
 }
 
-.logo span {
+.logo > span {
     background-color: #FC5D19;
     border-radius: 5px;
     color: white;
     font-weight: bolder;
     margin-right: 3px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.overlay.open {
+    display: block;
 }
 
 .sidebar .sidebar-nav a.active {

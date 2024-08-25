@@ -94,7 +94,8 @@ const decibelGaugeConfig = {
         type: 'bar',
         toolbar: {
             show: false
-        }
+        },
+        height: "60%"
     },
     plotOptions: {
         bar: {
@@ -113,7 +114,7 @@ const decibelGaugeConfig = {
         markers: {
             fillColors: ['#FC5D19', '#595959']
         },
-        offsetY: 10,
+        offsetY: 0,
     },
     xaxis: {
         labels: {
@@ -140,7 +141,7 @@ const decibelGaugeConfig = {
         },
         padding: {
             top: -35,
-            bottom: -20,
+            bottom: 0,
             left: -5,
         }
     },

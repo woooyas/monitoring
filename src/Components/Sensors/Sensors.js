@@ -50,7 +50,7 @@ export default function Sensors() {
 
     const saveSensorName = (sensorId) => {
         const newSensorName = inputValues[sensorId];
-        axios.put(`http://34.127.24.61:8080/api/sensors/${sensorId}/name`,
+        axios.put(`https://m0nit0ring.site/api/sensors/${sensorId}/name`,
             {sensorName: newSensorName},
             {
                 headers: {
@@ -61,7 +61,7 @@ export default function Sensors() {
     };
 
     useEffect(() => {
-        axios.get(`http://34.127.24.61:8080/api/sensor-statuses/latest`, {
+        axios.get(`https://m0nit0ring.site/api/sensor-statuses/latest`, {
             params: {
                 page: pageNum,
                 size: size,
@@ -84,55 +84,58 @@ export default function Sensors() {
 
     return (
         <div className="main-content"
-             style={{flexDirection: "column", overflow: "auto", flexWrap: "nowrap"}}>
+             style={{
+                 flexDirection: "column",
+                 overflow: "auto",
+                 flexWrap: "nowrap",
+                 alignItems: "center",
+             }}>
             <div className="data-list-header-container">
                 <Header title="센서 상태 정보" subtitle="배터리 잔량이 20% 이하일 경우 빨간색으로 표시됩니다."/>
                 <div className="my-select-container" style={{position: "absolute", right: 0, bottom: 0}}>
-                    <MySelect options={sizeOptions} onChange={(selectedOption) => setSize(selectedOption.value)}/>
+                    <MySelect options={sizeOptions} defaultValue={sizeOptions[0]}
+                              onChange={(selectedOption) => setSize(selectedOption.value)}/>
                 </div>
             </div>
-            <div className="data-list-container"
-                 style={{height: size > 10 ? `${40 + 54 * sensorStatuses.length}px` : undefined}}>
-                <ul className="data-list" style={{height: `${40 + 54 * sensorStatuses.length}px`}}>
-                    <li className="data-item-header">
-                        <div>센서 아이디</div>
-                        <div>센서명</div>
-                        <div>설치 장소</div>
-                        <div>배터리<SortButton setSortField={() => {
-                        }} sortOrder={sortOrder} setSortOrder={setSortOrder}/></div>
-                    </li>
-                    {
-                        sensorStatuses.map(data => (
-                            <li className="data-item" key={data.statusId}
-                                style={{
-                                    backgroundColor: data.batteryLevel <= 20 ? '#f5afac' : ''
-                                }}>
-                                <div>{data.sensor.deviceId}</div>
-                                <div className="data-name-container">
-                                    <input
-                                        className={`sensor-name-input ${data.sensor.sensorName ? "name-active" : ""}`}
-                                        type="text"
-                                        placeholder={data.sensor.sensorName || "별명 없음"}
-                                        value={inputValues[data.sensor.sensorId] || ''}
-                                        onChange={(e) => handleInputChange(data.sensor.sensorId, e.target.value)}/>
-                                    <button className="sensor-name-submit"
-                                            onClick={() => {
-                                                if (inputValues[data.sensor.sensorId]) {
-                                                    saveSensorName(data.sensor.sensorId);
-                                                    alert("저장되었습니다.");
-                                                }
-                                            }}>
+            <ul className="data-list">
+                <li className="data-item-header">
+                    <div>센서 아이디</div>
+                    <div>센서명</div>
+                    <div>설치 장소</div>
+                    <div>배터리<SortButton setSortField={() => {
+                    }} sortOrder={sortOrder} setSortOrder={setSortOrder}/></div>
+                </li>
+                {
+                    sensorStatuses.map(data => (
+                        <li className="data-item" key={data.statusId}
+                            style={{
+                                backgroundColor: data.batteryLevel <= 20 ? '#f5afac' : ''
+                            }}>
+                            <div>{data.sensor.deviceId}</div>
+                            <div className="data-name-container">
+                                <input
+                                    className={`sensor-name-input ${data.sensor.sensorName ? "name-active" : ""}`}
+                                    type="text"
+                                    placeholder={data.sensor.sensorName || "별명 없음"}
+                                    value={inputValues[data.sensor.sensorId] || ''}
+                                    onChange={(e) => handleInputChange(data.sensor.sensorId, e.target.value)}/>
+                                <button className="sensor-name-submit"
+                                        onClick={() => {
+                                            if (inputValues[data.sensor.sensorId]) {
+                                                saveSensorName(data.sensor.sensorId);
+                                                alert("저장되었습니다.");
+                                            }
+                                        }}>
                                         <span className="material-symbols-outlined"
                                               style={{color: "#96989a"}}>edit</span>
-                                    </button>
-                                </div>
-                                <div>{translateLocation(data.sensor.location)}</div>
-                                <div>{data.batteryLevel}</div>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
+                                </button>
+                            </div>
+                            <div>{translateLocation(data.sensor.location)}</div>
+                            <div>{data.batteryLevel}</div>
+                        </li>
+                    ))
+                }
+            </ul>
             <nav className="data-list-footer">
                 <Pagination totalPages={totalPages} pageNum={pageNum} setPageNum={setPageNum}/>
             </nav>

@@ -16,7 +16,7 @@ export default function TemperatureLineChart() {
     const [chartConfig, setChartConfig] = useState(tempLineConfig);
 
     useEffect(() => {
-        axios.get("http://34.127.24.61:8080/api/sensor-data/recent-temperature")
+        axios.get("https://m0nit0ring.site/api/sensor-data/recent-temperature")
             .then(response => {
                 const data = response.data;
                 const groupedData = groupData(data, {

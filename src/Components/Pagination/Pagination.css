@@ -5,9 +5,10 @@
     border: #c4c7c9 1px solid;
     align-items: center;
     height: 100%;
-    width: fit-content;
     padding: 0;
     font-size: 14px;
+    margin: 0;
+    width: 100%;
 }
 
 .page-item {

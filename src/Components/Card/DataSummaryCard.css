@@ -4,13 +4,12 @@
     display: flex;
     flex-direction: column;
     text-align: start;
-    margin: 25px 0;
+    margin: 24px 0;
     padding: 0 24px;
+    justify-items: center;
     justify-content: space-between;
-}
-
-.data-summary-title {
-
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .data-summary-value {
@@ -20,7 +19,7 @@
 
 .data-summary-sub {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     font-size: 13px;
 }

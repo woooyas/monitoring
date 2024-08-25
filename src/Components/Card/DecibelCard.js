@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import qs from "qs";
 
-
 const locations = ["lobby", "office", "class_a", "class_b", "server_room", "meeting_room"];
 export default function DecibelCard() {
 
@@ -19,7 +18,7 @@ export default function DecibelCard() {
     const [chartConfig, setChartConfig] = useState(decibelGaugeConfig);
 
     useEffect(() => {
-        axios.get("http://34.127.24.61:8080/api/sensor-data/recent-noise?page=0&size=6", {
+        axios.get("https://m0nit0ring.site/api/sensor-data/recent-noise?page=0&size=6", {
             params: {
                 places: locations,
                 page: 0,

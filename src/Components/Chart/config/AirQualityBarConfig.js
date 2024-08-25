@@ -40,7 +40,8 @@ const airQualityBarConfig = {
             horizontal: false,
             dataLabels: {
                 position: 'top',
-            }
+            },
+            columnWidth: '80%'
         }
     },
     dataLabels: {
@@ -69,13 +70,7 @@ const airQualityBarConfig = {
             text: '미세먼지 (µg/m³)'
         },
         labels: {
-            offsetX: -5
-        }
-    },
-    grid: {
-        padding: {
-            left: 0,
-            right: -10
+            offsetX: 0
         }
     }
 };
